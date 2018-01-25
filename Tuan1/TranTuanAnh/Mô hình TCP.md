@@ -19,21 +19,21 @@ yếu trên mạng internet.
 
 ![Kiến trúc](https://i.imgur.com/ZRDW4kr.png)
 
-* **So sánh với mô hình OSI**
+## So sánh với mô hình OSI
 ![So sánh với OSI](https://i.imgur.com/ClwPUoG.png)
 
 - **Giống nhau**:
- - Cả 2 đều có kiến trúc phân lớp.
- - Đều có lớp Applocation, mặc dù các dịch vụ ở mỗi lớp khác nhau.
- - Đều có các lớp Transport và Network.
- - Sử dụng kĩ thuật chuyển packet (packet-switched).
- - Các nhà quản trị mạng chuyên nghiệp cần phải biết rõ 2 mô hình này.
+  - Cả 2 đều có kiến trúc phân lớp.
+  - Đều có lớp Applocation, mặc dù các dịch vụ ở mỗi lớp khác nhau.
+  - Đều có các lớp Transport và Network.
+  - Sử dụng kĩ thuật chuyển packet (packet-switched).
+  - Các nhà quản trị mạng chuyên nghiệp cần phải biết rõ 2 mô hình này.
 
 - **Khác nhau**:
- - Mô hình TCP/IP kết hợp lớp Presentation và lớp Session vào trong lớp Application.
- - Mô hình TCP/IP kết hợp lớp Data Link và lớp Physical vào trong một lớp.
- - Mô hình TCP/IP đơn giản hơn bởi vì có ít lớp hơn.
- - Nghi thức TCP/IP được chuẩn hóa và được sử dụng phổ biến trên toàn thế giới.
+  - Mô hình TCP/IP kết hợp lớp Presentation và lớp Session vào trong lớp Application.
+  - Mô hình TCP/IP kết hợp lớp Data Link và lớp Physical vào trong một lớp.
+  - Mô hình TCP/IP đơn giản hơn bởi vì có ít lớp hơn.
+   Nghi thức TCP/IP được chuẩn hóa và được sử dụng phổ biến trên toàn thế giới.
 ----
 ## Nhiệm vụ từng tầng
 ### 1. Tầng ứng dụng (Application layer):
