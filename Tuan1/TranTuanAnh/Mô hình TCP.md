@@ -23,7 +23,7 @@ yếu trên mạng internet.
 ![So sánh với OSI](https://i.imgur.com/ClwPUoG.png)
 ----
 ## Nhiệm vụ từng tầng
-###1. Tầng ứng dụng (Application layer):
+### 1. Tầng ứng dụng (Application layer):
 * **Cung cấp các ứng dụng** để giải quyết sự cố mạng, vận chuyển file, điều khiển từ xa, và các hoạt động Internet. Đồng thời **hỗ trợ Giao diện Lập trình Ứng dụng** (API) mạng, cho phép các chương trình được thiết kế cho một hệ điều hành nào đó có thể truy cập mạng. 
 * **Các giao thức làm việc**:
  * **Flie Transfer:** TFTP, FTP, NFS.
