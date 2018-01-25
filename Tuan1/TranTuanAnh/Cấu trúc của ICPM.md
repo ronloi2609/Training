@@ -46,7 +46,7 @@ Thêm một trường poiter(8 bit) để chỉ vị trí của octet lỗi.
 
   không mang các lost packet hoặc error conditions. Control messenger báo cho host biết các điều kiện như đang có congestion hoặc có gateway phù hợp hơn cho host.
 
-##4.ICMP Redirect/ Change Request messenger
+## 4.ICMP Redirect/ Change Request messenger
 
 Là một loại control messenger, nó chỉ được gửi đi bởi một default gateway và nó báo cho host nhận biết là có best path cho mi đọc nếu có các điều kiện sau xảy ra: 
 
