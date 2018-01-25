@@ -19,7 +19,7 @@ yếu trên mạng internet.
 
 ![Kiến trúc](https://i.imgur.com/ZRDW4kr.png)
 
-## So sánh với mô hình OSI
+
 ![So sánh với OSI](https://i.imgur.com/ClwPUoG.png)
 
 - **Giống nhau**:
