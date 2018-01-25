@@ -61,18 +61,18 @@ Có thể bỏ default này bằng command:” **no ip redirect**”
 - Dùng để đồng bộ thời gian cho các ứng dụng giữa nơi chuyển và nơi nhận.
 - Ngoài ra còn có 2 trường có size là 16 bit là ID và sequence Number dùng để nhận biết giữa các cặp reply/request.
 
-##6.ICMP Information Request and Reply Messenger
+## 6.ICMP Information Request and Reply Messenger
 
 - Để xác định số network được sử dụng.
 - Ngoài ra còn có 2 trường có size là 16 bit là ID và sequence Number dùng để nhận biết giữa các cặp reply/request.
 
-##7. ICMP Address Mask Request messenger
+## 7. ICMP Address Mask Request messenger
 - Để host tìm subnetmask của mình khi không được cấu hình bằng tay.
 - có 2 trường có size là 16 bit là ID và sequence Number dùng để nhận biết giữa các cặp reply/request
 - 1 trường 32 bit dành cho Address Mask( với request messenger thì nó được cho về not use còn với reply messenger thì nó là Address mask correct của host)
 
-##8.ICMP Router Discover messenger
+## 8.ICMP Router Discover messenger
 - ICMP Router Solicitation messenger Được dùng khi sender mất default gateway 
 
-##9.ICMP Source Quench messenger 
+## 9.ICMP Source Quench messenger 
 - Được dùng để báo cho sender biết có congestion và hỏi sender xem có giảm tốc độ gửi packet đi không. Nó thuộc loại Flow- Control messenger.
