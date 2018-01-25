@@ -44,18 +44,19 @@ see [Wikipedia](https://vi.wikipedia.org/wiki/M%C3%B4_h%C3%ACnh_OSI)
 - Thực hiện **thiết lập, duy trì và kết thúc các phiên làm việc** giữa 2 hệ thống.
  * **Các giao thức**: NFS,X-Window System, ASP.
 
-
+----
 ## Tầng 6.Presentation layer(*tầng trình bày*):
 - **Chuyển đổi thông tin** từ cú pháp người sử dụng sang cú pháp truyền thông. **Nén, mã hóa** dữ liệu trước khi truyền. 
  * **Các chuẩn định dạng**: GiF, JPEG, PICT, MP3,..  
 * **Có thể hiểu**: *tầng 6 như người dịch giả giúp định dạng các dữ liệu*.  
 
-
+----
 ## Tầng 7.Application layer(*tầng ứng dụng*):
 - Quy định **giao tiếp giữa các người sử dụng và môi trường** OSI, **cung cấp phương tiện** cho người dùng truy cập và sử dụng các dịch vụ của mô hình OSI.
  * **Các giao thức**: HTTP, FPT, SMTP, POP3, Telnet.
 * **Chú ý**: *Các trình duyệt( CocCoc, Chrome, IE, FireFox,.... không thuộc lớp này*.
 
+----
 * **Ví dụ thực tế**: Để giúp bạn nhớ các chức năng của từng lớp một cách dễ dàng hơn, tôi tạo ra một câu chuyện thú vị trong đó Henry (tiếng Anh) muốn gửi một tài liệu để Charles (Pháp) để chứng minh làm thế nào mô hình OSI làm việc.
 ![Ví dụ](http://www.9tut.com/images/ccna_self_study/OSI/OSI_7_layers_fun.jpg)
 ----
