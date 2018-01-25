@@ -32,22 +32,26 @@ yếu trên mạng internet.
  * **Network Managenment**: SNMP
  * **Name Management**: DNS
 
-###2. Tầng vận chuyển (Transport Layer):
+----
+### 2. Tầng vận chuyển (Transport Layer):
 * Giúp **kiểm soát luồng dữ liệu, kiểm tra lỗi** và **xác nhận các dịch vụ** cho liên mạng. Đóng vai trò giao diện cho các ứng dụng mạng.
 - **Các giao thức hoạt động**: TCP, UDP.
 
-###3. Tầng Internet( Internet Layer)
+----
+### 3. Tầng Internet( Internet Layer)
 - **Cung cấp địa chỉ logic**, độc lập với phần cứng, để dữ liệu có giao thông và hỗ trợ việc vận chuyển liên mạng.
 - Thuật ngữ liên mạng được dùng để đề cập đến các thể lướt qua các tiểu mạng có cấu trúc vật lý khác nhau. **Cung cấp chức năng định tuyến** để giao lưu lượng mạng rộng lớn hơn, kết nối từ nhiều LAN.
 - **Tạo sự gắn kết** giữa địa chỉ vật lý và địa chỉ logic.
  - **Các giao thức mạng**: IP, ICMP, ARP, RARP.
 
-###4. Tầng truy cập mạng( Network Access Layer)
+----
+### 4. Tầng truy cập mạng( Network Access Layer)
 - **Cung cấp giao diện** tương tác với mạng vật lý.
 - **Format dữ liệu** cho bộ phận truyền tải trung gian và tạo địa chỉ dữ liệu cho các tiểu mạng dựa trên địa chỉ phần cứng vật lý.
 - **Cung cấp việc kiểm tra lỗi** trong quá trình truyền dữ liệu.
+
 ----
-###Hình ảnh tổng quan các giao thức dùng ở các tầng
+### Hình ảnh tổng quan các giao thức dùng ở các tầng
 ![Giao thức](https://i.imgur.com/u0ueePB.png) 
 
 - **FTP (File transfer Protocol)**: Giao thức truyền tệp cho phép người dùng lấy hoặc gửi tệp tới một máy khác.
