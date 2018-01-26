@@ -27,7 +27,7 @@ Các giao thúc sử dụng trên UDP: TFTP, SNMP, DHCP, DNS.
 - Quy định phát triển phần mềm ứng dụng thống nhất dùng các chỉ số port đặc biệt được kiểm soát bởi IANA.
 
 # Các dải chỉ số port quy định:
-- Các chỉ số **Port < 255 ** cho các ứng dụng **công cộng**.
+- Các chỉ số **Port < 255** cho các ứng dụng **công cộng**.
 - Các chỉ số **Port từ 255-1023** được gán cho các công ty trong các **ứng dụng thương mai**.
 - Các chỉ số **Port > 1023 không được quy định** sắp xếp rõ ràng.
 
