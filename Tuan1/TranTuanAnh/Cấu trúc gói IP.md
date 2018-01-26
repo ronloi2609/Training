@@ -39,7 +39,7 @@ see [Wikipedia](https://vi.wikipedia.org/wiki/IP)
    - Chỉ ra lớp mạng (A, B, C...)
    - Không cho phép tất cả các Bit đều bằng 0.
 
- - ** Host Bits**:
+ - **Host Bits**:
    - Xác định phần địa chỉ host.
    - Tất cả các bit đều bằng 0 dùng để chỉ địa chỉ mạng.
    - Tất cả các bit đều bằng 1 dùng để chỉ địa chỉ Broadcast.
