@@ -4,11 +4,16 @@
 ## ICMP là gì?
 see [Wikipedia](https://en.wikipedia.org/wiki/ICPM)
 
-> IP không có cơ chế để biết được data nó gửi đã đến được đích chưa, nên mới sinh ra cái gọi là Internet Control Messenger Protocol(ICMP). ICMP sinh ra không phải để giải quyết cái thuộc tính không đáng tin cậy(unreliability) vốn có của IP mà ICMP messenger có nhiệm vụ đơn giản là thông báo cho sender biết việc gửi data đi có vấn đề.
-
+> ICMP (Internet Control Message Protocol) là một giao thức của bộ giao thức TCP/IP. Nó được các thiết bị mạng như router dùng để gửi đi các thông báo lỗi chỉ ra một dịch vụ có tồn tại hay không, hoặc một địa chỉ host hay router có tồn tại hay không.
 ----
-## Định dạng của gói TCMP
-- Gói tin ICMP được  mang trong phần dữ liệu của gói tin IP. Mắc dù mỗi gói tin ICMP có dạng riêng của nó, nhưng chúng đều bắt đầu với 3 trường sau:
+## Gói tin ICMP gồm 2 phần:
+- **Header**.
+- **Data**.
+
+### Header
+![](https://i.imgur.com/pQ8xTrQ.png)
+
+- 32 bit đầu tiên (4 byte đầu) của một gói tin ICMP là giống nhau cho mỗi loại thông điệp, nội dung các byte còn lại sẽ lệ thuộc vào trường type và trường code:
 
  1. **TYPE (8bit)**: là một số nguyên 8bit để xác định thông điệp.
 
@@ -17,6 +22,14 @@ see [Wikipedia](https://en.wikipedia.org/wiki/ICPM)
  3. **CheckSum (16bit)**: ICMP sử dụng thuật checksum như IP, nhưng ICMP checksum chỉ tính đến thông điệp ICMP.
 
 - Các thông điệp ICMP **thông báo lỗi** luôn luôn bao gồm **phần đầu và 64bit đầu tiên của packet** gây nên lỗi. 
+
+
+ - Một số thông báo đáng chú ý:
+ ![](https://i.imgur.com/vUPRGlc.png)  
+
+ ### Data
+
+ - Thông thường, data là header của gói tin IP và là 64 bit đầu tiên của nó.
 
 ----
 ## Các loại ICMP mesenger thường thấy
