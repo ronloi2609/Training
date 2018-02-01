@@ -1,4 +1,4 @@
-# Cấu trúc của ICPM
+# Cấu trúc của ICMP
 
 ----
 ## ICMP là gì?
