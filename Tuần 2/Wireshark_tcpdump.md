@@ -70,9 +70,9 @@ Thông tin của một gói tin cụ thể:
 
 ### Phân tích quá trình ping
 - sử dụng từ khóa để lọc dữ liệu ICMP
-	`icmp`  
+- `icmp`  
 	
-	`ip.adr == 203.162.130.88 && icmp`
+- `ip.adr == 203.162.130.88 && icmp`
 
 ### Phân tích tầng layer 2
 
@@ -94,9 +94,9 @@ Thông tin của một gói tin cụ thể:
 + `Destination: 45.77.172.233`: đến địa chỉ máy
 
 ### Phân tích DNS
- + xác định protocol, port là gì:
-  protocol: TCP, UDP, TCP/53 dùng cho các sever , UDP/53 dùng cho client truy vấn tên miền.
-  Fileter ra dữ liệu tương ứng là UDP/53 từ máy tính 192.168.1.101
+ + xác định protocol, port là gì:  
+  - protocol: TCP, UDP, TCP/53 dùng cho các sever , UDP/53 dùng cho client truy vấn tên miền.  
+  - Fileter ra dữ liệu tương ứng là UDP/53 từ máy tính 192.168.1.101
   `ip.addr == 192.168.1.101 && dns`
 
  ### Phan tích HTTP
