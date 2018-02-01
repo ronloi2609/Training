@@ -1,20 +1,20 @@
 # Tường Lửa- firewall
 # Mục lục:
->## 1. Khái niệm
-### 1.1 Mục đích của Firewall
-### 1.2 Chức năng của Firewall
+## 1. Khái niệm
+>### 1.1 Mục đích của Firewall
+>### 1.2 Chức năng của Firewall
 ## 2. Phân loại
-### 2.1 Firewall lọc gói( Packet Filetering Firewall)
-### 2.2. Firewall mức kết nối
-### 2.3. Firewall mức ứng dụng
-### 2.4 Firewall lọc gói động
+>### 2.1 Firewall lọc gói( Packet Filetering Firewall)
+>### 2.2. Firewall mức kết nối
+>### 2.3. Firewall mức ứng dụng
+>### 2.4 Firewall lọc gói động
 ## 3. Những hệ thống trong thực tế
-### 3.1 Các hệ thống firewall đơn giản
-### 3.2 Các hệ thống firewall phức tạp
+>### 3.1 Các hệ thống firewall đơn giản
+>### 3.2 Các hệ thống firewall phức tạp
 ## 4. Giải pháp triển khai Firewall cụ thể
-### 4.1 Mô hình trung tâm nhỏ
-### 4.2 Mô hình trung tâm trung bình
-### 4.3 Mô hình trung tâm lớn
+>### 4.1 Mô hình trung tâm nhỏ
+>### 4.2 Mô hình trung tâm trung bình
+>### 4.3 Mô hình trung tâm lớn
 
 ----
 # 1. Khái niệm
@@ -162,6 +162,8 @@
 
 - Cũng có thể sử dụng để cung cấp hỗ trợ cho 1 tập con nào đố của giao thức vận chuyển ICMP.  
 
+----
+
 # 3. Những hệ thông Firewall trong thực tế. 
 
 - **Mạng vành đai**: Là mạng được đặt giữa một mạng được bảo vệ và một mạng bên ngoài để cung cấp thêm lớp bảo vệ an ninh, gọi tắt là DMZ(De-militarzed Zone- Vùng phi quân sự)
@@ -224,7 +226,6 @@ hiểm như TFTP, hệ thống Window X, RPC, các dịch vụ “r” (rsh, rcp
  + Khó cấu hình hơn, cần phải cấu hình thêm cho screening router.
  + kẻ tấn công vẫn có thể tấn công vào mạng bằng các gửi các gói tin với địa chỉ nguồn giả mạo.  
 
-----
 
 ### b) hệ thống screened Subnet
 ![](https://i.imgur.com/VhkKdQg.png)  
@@ -253,7 +254,6 @@ mạng ngoài có địa chỉ nguồn giả mạo, nhưng nó không thể đư
   + Phải có thêm nhiều thiết bị: cần có 2 screening router và 1 bastion.
   + Khó cấu hình.
 
-----
 
 ### C) Hệ thống Screened Subnet với nhiều Bastion Host
 ![](https://i.imgur.com/AVVtZiu.png)
