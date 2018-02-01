@@ -66,6 +66,38 @@ Nhấp chuột phải vào một packet, chúng ta sẽ thấy toàn bộ quãng
 Thông tin của một gói tin cụ thể:
 ![](https://i.imgur.com/lTK9vlT.png)
 
+----
+
+### Phân tích quá trình ping
+- sử dụng từ khóa để lọc dữ liệu ICMP
+	`icmp`
+	`ip.adr == 203.162.130.88 && icmp`
+
+### Phân tích tầng layer 2
+
+`Ethernet II, Src: IntelCor_88:e5:55 (48:51:b7:88:e5:55), Dst: Cisco_ac:4d:ce (00:25:84:ac:4d:ce)` trong đó:
+	+ `Ethernet II` : loại công nghệ mạng kết nối
+	+ `Source: IntelCor_88:e5:55 (48:51:b7:88:e5:55)` : Máy sử dụng cạc Intercor với địa chỉ MAC: 48:51:b7
+	+ `Destination: Cisco_ac:4d:ce (00:25:84:ac:4d:ce)`: kết nối đến Cisco địa chỉ MAC :00:25:84
+
+### Phân tích tầng Layer 3
+`Internet Protocol Version 4, Src: 203.162.130.88, Dst: 45.77.172.233`
++ `Version 4` : sử dụng version 4
++ `Source: 203.162.130.88`:  địa chỉ nguồn từ máy
++ `Destination: 45.77.172.233`: đến địa chỉ máy
+
+### Phân tích DNS
+ + xác định protocol, port là gì:
+  protocol: TCP, UDP, TCP/53 dùng cho các sever , UDP/53 dùng cho client truy vấn tên miền.
+  Fileter ra dữ liệu tương ứng là UDP/53 từ máy tính 192.168.1.101
+  `ip.addr == 192.168.1.101 && dns`
+
+ ### Phan tích HTTP
+ + Fileter luồng dữ liệu web
+ 	`ip.addr==192.168.1.101 && http` : ip máy và http
+ 	`ip.addr == 203.162.130.88 && ip.addr== 123.30.175.29`:  lọc ip của máy và ip của trang web
+  
+  -----
 
 # tcpdump
 **tcpdump** là công cụ được phát triển nhằm mục đích phân tích các gói dữ liệu mạng theo dòng lệnh. Nó cho phép người dùng chặn và hiển thị các gói tin được truyền đi hoặc được nhận trên một mạng mà máy tính có tham gia.
