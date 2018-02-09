@@ -130,19 +130,20 @@
 
 ## 4. Quản lí mạng
 
-|Lệnh|Mô tả|
-|/etc/network/interfaces|Thông tin cấu hình của các bộ phần giao diện (interfaces)|
-|uname -a|Hiện thị tên của máy tính trong mạng (hostname)|
-|ping địa chỉ IP|Thử nối mạng đến máy có địa chỉ IP|
-|ifconfig -a|Hiển thị thông tin về tất cả các giao diện mạng đang có|
-|ifconfig eth0 địa chỉ IP|Xác định địa chỉ IP cho giao diện cạc mạng eth0|
-|ifdown eth0|Ngưng hoạt động giao diện cạc mạng eth0|
-|ifconfig eth0 down|	
-|ifup eth0|Kích hoạt giao diện cạc mạng eth0|
-|ifconfig eth0 up|	
-|poweroff -i|Ngưng hoạt động tất cả các nối mạng|
-|route add default gw địa chỉ IP|Xác định địa chỉ IP của máy làm cổng dẫn đến bên ngoài mạng cục bộ|
-|route del default|Bỏ địa chỉ IP mặc định để ra khỏi mạng cục bộ|
+|Lệnh|Mô tả|  
+|---|---|  
+|/etc/network/interfaces|Thông tin cấu hình của các bộ phần giao diện (interfaces)|  
+|uname -a|Hiện thị tên của máy tính trong mạng (hostname)|  
+|ping địa chỉ IP|Thử nối mạng đến máy có địa chỉ IP|  
+|ifconfig -a|Hiển thị thông tin về tất cả các giao diện mạng đang có|  
+|ifconfig eth0 địa chỉ IP|Xác định địa chỉ IP cho giao diện cạc mạng eth0|  
+|ifdown eth0|Ngưng hoạt động giao diện cạc mạng eth0|  
+|ifconfig eth0 down|  	
+|ifup eth0|Kích hoạt giao diện cạc mạng eth0|  
+|ifconfig eth0 up|  	
+|poweroff -i|Ngưng hoạt động tất cả các nối mạng|  
+|route add default gw địa chỉ IP|Xác định địa chỉ IP của máy làm cổng dẫn đến bên ngoài mạng cục bộ|  
+|route del default|Bỏ địa chỉ IP mặc định để ra khỏi mạng cục bộ|  
 
 -----
 
