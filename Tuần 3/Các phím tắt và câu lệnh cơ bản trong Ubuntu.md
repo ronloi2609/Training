@@ -11,6 +11,8 @@
 > ## B) Các phím tắt
 ---
 
+## A) Các lệnh cơ bản
+### 1. Các lệnh quản lí tập tin
 ### Tạo tập tin và thư mục
 
 | Lệnh | Mô tả |   
