@@ -24,7 +24,7 @@ Một cách chính xác, **thuật ngữ "Linux" được sử dụng để ch�
 
 ![](https://vnitnews.com/wp-content/uploads/2015/10/Ki%E1%BA%BFn-tr%C3%BAc-h%E1%BB%87-%C4%91i%E1%BB%81u-h%C3%A0nh-Linux.png)
 
-###2.1 Hat Nhân (Kernel)
+### 2.1 Hat Nhân (Kernel)
 
 - **Là trung tâm điều khiển** của hệ điều hành Linux chứa các mã nguồn điều khiển hoạt động toàn bộ của hệ thống. Hạt nhân được phát triển không ngừng, thường có **hai phiên bản** mới nhất, **một bản để phát triển và một bản ổn định***. 
 - Kernel **thiết kế theo dạng module**, do vậy kích thước thật sự của Kernel rất nhỏ. Chúng **chỉ tải được những bộ phận cần thiết lên bộ nhớ**, các bộ phận khác sẽ được tải lên nếu có yêu cầu sử dụng. Do đó **không sử dụng lãng phí bộ nhớ**.
@@ -88,7 +88,7 @@ Kernel Linux có thể **truy xuất tới toàn bộ tính năng phần cứng 
 - Sử dụng lệnh  `sudo fdisk –l`: hiển thị thông số theo sector     
 - Sử dụng lệnh  `df –h` : hiển thị output theo dạng dễ đọc, các tệp hệ thống      
 
-![](https://i.imgur.com/kCbsvjY.png
+![](https://i.imgur.com/kCbsvjY.png)
 
 ### 5.	Các trình biên tập:
 
