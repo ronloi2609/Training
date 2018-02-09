@@ -31,3 +31,21 @@
 - Lệnh `apt full-upgrade` sẽ thực hiện chức năng **nâng cấp các gói tin của hệ thống và sẽ loại bỏ các gói cài đặt cũ** đang hiện có nếu điều này là cần thiết.
 - Lệnh `apt full-upgrade` chỉ mới xuất hiện gần đây, đặc biệt là từ **phiên bản Ubuntu 16.04**.
 - Xét về mặt tổng thể, lệnh `apt full-upgrade` có tính năng khá giống với `apt-get dist-upgrade`.
+
+
+## Sự khác biệt giữa Update và Upgrate
+
+### Upgrade (nâng cấp)
+Thuật ngữ này dùng chỉ việc thay thế phần cứng, phần mềm, filmware,… bằng phiên bản mới cao cấp hơn giúp tăng khả năng hoạt động hệ thống.  
+
+Ví dụ:  
+- nâng cấp RAM từ 256MB lên 1GB  
+- nâng cấp HDD từ 40GB lên 200GB  
+- nâng cấp WindowsXP lên WindowsVista  
+
+### Update (cập nhật)
+Thuật ngữ này thường được dùng chỉ việc cập nhật phần mềm những bộ file sửa lỗi, bảo mật,… hay bổ sung thêm chức năng giúp đối tượng được update thích nghi tốt hơn với tình hình thực tế.  
+
+Ví dụ:  
+- cập nhật các bản vá lỗi cho Windows  
+- cập nhật mã virus cho các chương trình anti-virus  
