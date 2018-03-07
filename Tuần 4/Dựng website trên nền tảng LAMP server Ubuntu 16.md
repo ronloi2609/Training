@@ -53,7 +53,7 @@ curl -O https://wordpress.org/latest.tar.gz`
 
 `sudo vi wp-config.php`  
 
-** Chỉnh sửa các phần màu đỏ được gạch chân :  
+** Chỉnh sửa các phần màu đỏ được gạch chân :**  
 
 ![](https://nguyenhuuhoang.com/wp-content/uploads/2016/09/huong-dan-cai-dat-wordpress-tren-lamp-ubuntu-16.04-hinh-2-nguyenhuuhoang.com-min.jpg)  
 **save và thoát**  
@@ -70,7 +70,9 @@ curl -O https://wordpress.org/latest.tar.gz`
 ![](https://nguyenhuuhoang.com/wp-content/uploads/2016/09/huong-dan-cai-dat-wordpress-tren-lamp-ubuntu-16.04-hinh-4-nguyenhuuhoang.com_.jpg)  
 
 **Điền đầy đủ thông tin liên quan đến website của bạn**  
-ví dụ: 
+
+ví dụ:  
+ 
 ![](https://nguyenhuuhoang.com/wp-content/uploads/2016/09/huong-dan-cai-dat-wordpress-tren-lamp-ubuntu-16.04-hinh-5-nguyenhuuhoang.com_.jpg)  
 
 ![](https://nguyenhuuhoang.com/wp-content/uploads/2016/09/huong-dan-cai-dat-wordpress-tren-lamp-ubuntu-16.04-hinh-6-nguyenhuuhoang.com_.jpg)  
