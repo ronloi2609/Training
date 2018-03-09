@@ -99,3 +99,96 @@ Các nhóm lệnh này rất ít được sử dụng bởi các phần mềm, t
 - Cú pháp: `DROP TABLE Tên_bảng;`
 
 ---
+
+
+
+## MysQL Replication.
+- MySQL replication cho phép dữ liệu từ 1 MySQL database server (đóng vai trò master) được đọc và ghi dữ liệu sau đó cập nhập những dữ liệu đã thay đổi sang 1 hoặc nhiều MySQL database server khách( đóng vai trò slaves chỉ có quyền đọc dữ liệu).
+- Với cơ sở dữ liệu, nhu cầu lưu trữ lớn, đòi hỏi cơ sở dữ liệu toàn vẹn, không bị mất mát trước những sự cố ngoài dự đoán là rất cao. Vì vậy, người ta nghĩ ra khái niệm “nhân bản”, tạo một phiên bản cơ sở dữ liệu giống hệt cơ sở dữ liệu đang tồn tại, và lưu trữ ở một nơi khác, đề phòng có sự cố.  
+- Phiên bản cơ sở dữ liệu phục vụ ứng dụng được lưu trữ trên server master. Phiên bản cơ sở dữ liệu “nhân bản” được lưu trữ trên server slave. Quá trình nhân bản từ master sang slave gọi là replication.  
+- Khi có một thay đổi trên cơ sở dữ liệu master, master sẽ ghi xuống log file (log ở dạng binary). Slave đọc log file, thực hiện những thao tác trong log file. Việc ghi, đọc log theo dạng binary được thực hiện rất nhanh.
+
+### 1. Mô hình MySQL replication gồm có 2 thành phần: 
+- MySQL master
+- MySQL slave
+
+### 2. Cách thức hoạt động  
+- Tại thời điểm hoạt động bình thường mọi request sẽ được đưa đến vào MySQL master. Khi MySQL master gặp sự cố, request sẽ được đẩy qua cho MySQL slave xử lí. Khi MySQL master up lại bình thường, request sẽ được trả về cho MySQL master.  
+- Quá trình chuyển đổi vai trò giữa MySQL master và MySQL slave sẽ được giới thiệu ở bài hướng dẫn sau. Bài hướng dẫn đầu tiên chỉ nêu các bước để cấu hình MySQL master và MySQL slave replicate cho nhau.  
+
+### 3. Các bước cấu hình
+**a.** Giả sử máy tính MySQL master có hostname là `master.mydomain.com.` Máy tính MySQL slave có hostname là `slave.mydomain.com.` 
+
+**b.** Cài đặt mysql bằng các gói `rpm` trên MySQL master và MySQL slave.  
+
+**c.** Start mysql trên MySQL master và MySQL slave.  
+
+**d. Cấu hình master**  :
+
+- Tạo user cho phép MySQL slave được quyền REPLICATE  
+`mysql> GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%.mydomain.com' IDENTIFIED BY 'slavepass';`  
+
+- Sửa trong file /etc/my.cnf những option sau:  
+
+    [mysqld]
+    log-bin=mysql-bin
+    server-id=1
+    innodb_flush_log_at_trx_commit=1
+    sync_binlog=1   
+
+- Start mysql trên MySQL master  
+
+**e. Cấu hình Slave**  
+- Sửa trong file /etc/my.cnf option sau:  
+`server-id=2`  
+-  Start mysql trên MySQL slave.
+- Để replication, cần xem tình trạng ghi log hiện tại của MySQL master, để điều khiển slave bắt đầu replicate như thế nào.  
+- Ngưng mọi tác động trên cơ sở dữ liệu MySQL master  
+`mysql> FLUSH TABLES WITH READ LOCK;`  
+
+- Xem tình trạng của MySQL master:  
+
+    mysql > SHOW MASTER STATUS;
+    | File | Position | Binlog_Do_DB | Binlog_Ignore_DB |
+    | mysql-bin.003 | 73 | test | manual,mysql |
+
+- Cấu hình những thông tin cần thiết, để slave giao tiếp được với master:  
+
+    mysql> CHANGE MASTER TO
+    MASTER_HOST='master.mydomain.com',
+    MASTER_USER='repl',
+    MASTER_PASSWORD='slavepass',
+    MASTER_LOG_FILE='recorded_log_file_name',
+    MASTER_LOG_POS=recorded_log_position;   
+
+Ghi chú: giá trị MASTER_LOG_FILE ở đây là file name [mysql-bin.003] và MASTER_LOG_POS là giá trị [Position] của câu lệnh SHOW MASTER STATUS;  
+
+ - Nếu trước khi thực hiện replication, master không ghi thành log file, thì giá trị tương ứng ở đây là: chuỗi rỗng (“”) và 4.  
+ -  Giải phóng các table trên master:  
+ `mysql> UNLOCK TABLES;`   
+
+ - Hoàn tất quá trình cấu hình , test thử  
+
+ **f. Master đã có dữ liệu:**  
+
+ - Giả sử trước khi thực hiện mô hình replication, master đã có dữ liệu. Vậy ta cần migrate dữ liệu qua slave trước, trước khi thực hiện các bước replication như ở trên.  
+
+- Trên master, ngưng những tác động làm thay đổi cơ sở dữ liệu, dump database:   
+
+`mysql> FLUSH TABLES WITH READ LOCK;`   
+`shell> mysqldump --all-databases --master-data > dbdump.db`  
+
+- Import cơ sở dữ liệu này vào MySQL slave.
+- Tương tự phần trên, nếu trước khi thực hiện replication, MySQL master có ghi log, cần xem tình trạng log tại thời điểm đó, để cấu hình cho MySQL slave bắt đầu replication tại điểm nào.
+- Cấu hình những thông tin cần thiết, để slave giao tiếp được với master:  
+
+    mysql> CHANGE MASTER TO
+    MASTER_HOST='master.mydomain.com',
+    MASTER_USER='repl',
+    MASTER_PASSWORD='slavepass',
+    MASTER_LOG_FILE='recorded_log_file_name',
+    MASTER_LOG_POS=recorded_log_position;
+
+- Giải phóng các table trên master, start mysql trên MySQL slave  
+`mysql> UNLOCK TABLES;`  
+- Hoàn tất quá trình cấu hình, test thử.
