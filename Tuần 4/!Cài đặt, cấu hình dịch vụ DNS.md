@@ -91,4 +91,59 @@ Tiếp theo, bạn khởi động lại dịch vụ **BIND9** để những thao
 
 Để kiểm tra hoạt động của DNS Server, bạn sử dụng lệnh ping như sau:
 
-    # ping ns.tuananh.org
+    # ping ns.tuananh.org  
+
+
+## 4. Xây dựng mô hình DNS master- slave
+Mục đích của việc xây dựng Slave DNS chính là thực hiện nhiệm vụ sao lưu dự phòng cho Master DNS. Vì khi Master DNS có sự cố thì việc phân giải tên miền sẽ không thể phân giải được. Slave DNS sẽ giải quyết vấn đề đó khi Master DNS không thể hoạt động vì một lý do nào đó.  
+
+### 4.1 Máy Master
+
+Cấu hình như phần 3 và ta gắn thêm cho nó các dải địa chỉ IP:  
+- 192.168.1.10 - tuananh.org
+- 192.168.1.11 - dns1.tuananh.org (Địa chỉ máy Master)
+- 192.168.1.12 - dns2.tuananh.org (Địa chỉ máy Slave)  
+
+**Bước 1**: 
+ - Tạo file `db.forward.com` bằng cách coppy file `db.local` từ **/etc/bind/**, chỉnh sửa hostname, thêm các tên miền mối và địa chỉ.
+ - Tạo file `db.resere.com` bằng cách coppy file `db.127` từ **etc/bind/**, chỉnh sửa hostname, thêm các tên miền mới và địa chỉ.  
+
+**Bước 2**:  
+ - Sửa file name.conf.local. Ta thêm một số dòng vào zone thuận, cho phép tự động cập nhật trên đường mạng 192.168.1.0/24 và transfer sang máy Slave DNS 192.168.10.4. Ở đây chúng ta đang cấu hình trên máy Master DNS nên type là master.  
+
+    zone "tuananh.org"{
+    	type master;
+    	file "/etc/bind/db.forward.com"  
+    	allow-update {192.168.1.0/24;};
+    	allow-transfer {192.168.1.12;};
+    };  
+    zone "10.168.192.in-addr.arpa"{
+    	type master;
+    	file "etc/bind/db.reverse.com";
+    	allow-update {192.168.1.0/24;};
+    	allow-transfer {192.168.1.12;};
+    }  
+
+**Bước 3**:
+- Thêm địa chỉ máy Slave vào file `db.forward.com` và file `db.reverse.com` 
+- Khởi động lại dịch vụ bind: `sudo /etc/init.d/bind9 restart`  
+- Dùng lệnh `dig` để kiểm tra. 
+
+### 4.2 Máy Slave 
+**Bước 1:**
+
+- Thiết lập Ip tĩnh cho máy:
+`sudo ifconfig enp0s3 192.168.1.12 netmask 255.255.255.0`  
+`sudo route add default gw 192.168.1.1`
+
+**Bước 2**:
+
+- Sửa file **/etc/resolv.conf**  
+
+    nameserver 192.268.1.10
+    search tuananh.org  
+
+**Bước 3:**
+- Thêm tham số allow-transfer và master vào file **/etc/bind/name.còn.local**, type là slave tương tự như mục 4.1.  
+- Khởi động lại dịch vụ `sudo /etc/init.d/bind9 restart`
+- Dùng lệnh `dig` để kiểm tra. 
