@@ -130,11 +130,11 @@ Các nhóm lệnh này rất ít được sử dụng bởi các phần mềm, t
 
 - Sửa trong file /etc/my.cnf những option sau:  
 
-    [mysqld]
-    log-bin=mysql-bin
-    server-id=1
-    innodb_flush_log_at_trx_commit=1
-    sync_binlog=1   
+    [mysqld]  
+    log-bin=mysql-bin  
+    server-id=1  
+    innodb_flush_log_at_trx_commit=1  
+    sync_binlog=1     
 
 - Start mysql trên MySQL master  
 
@@ -148,18 +148,18 @@ Các nhóm lệnh này rất ít được sử dụng bởi các phần mềm, t
 
 - Xem tình trạng của MySQL master:  
 
-    mysql > SHOW MASTER STATUS;
-    | File | Position | Binlog_Do_DB | Binlog_Ignore_DB |
-    | mysql-bin.003 | 73 | test | manual,mysql |
+    mysql > SHOW MASTER STATUS;  
+    | File | Position | Binlog_Do_DB | Binlog_Ignore_DB |  
+    | mysql-bin.003 | 73 | test | manual,mysql |  
 
 - Cấu hình những thông tin cần thiết, để slave giao tiếp được với master:  
 
-    mysql> CHANGE MASTER TO
-    MASTER_HOST='master.mydomain.com',
-    MASTER_USER='repl',
-    MASTER_PASSWORD='slavepass',
-    MASTER_LOG_FILE='recorded_log_file_name',
-    MASTER_LOG_POS=recorded_log_position;   
+    mysql> CHANGE MASTER TO  
+    MASTER_HOST='master.mydomain.com',  
+    MASTER_USER='repl',  
+    MASTER_PASSWORD='slavepass',  
+    MASTER_LOG_FILE='recorded_log_file_name',  
+    MASTER_LOG_POS=recorded_log_position;     
 
 Ghi chú: giá trị MASTER_LOG_FILE ở đây là file name [mysql-bin.003] và MASTER_LOG_POS là giá trị [Position] của câu lệnh SHOW MASTER STATUS;  
 
@@ -182,12 +182,12 @@ Ghi chú: giá trị MASTER_LOG_FILE ở đây là file name [mysql-bin.003] và
 - Tương tự phần trên, nếu trước khi thực hiện replication, MySQL master có ghi log, cần xem tình trạng log tại thời điểm đó, để cấu hình cho MySQL slave bắt đầu replication tại điểm nào.
 - Cấu hình những thông tin cần thiết, để slave giao tiếp được với master:  
 
-    mysql> CHANGE MASTER TO
-    MASTER_HOST='master.mydomain.com',
-    MASTER_USER='repl',
-    MASTER_PASSWORD='slavepass',
-    MASTER_LOG_FILE='recorded_log_file_name',
-    MASTER_LOG_POS=recorded_log_position;
+    mysql> CHANGE MASTER TO  
+    MASTER_HOST='master.mydomain.com',  
+    MASTER_USER='repl',  
+    MASTER_PASSWORD='slavepass',  
+    MASTER_LOG_FILE='recorded_log_file_name',  
+    MASTER_LOG_POS=recorded_log_position;  
 
 - Giải phóng các table trên master, start mysql trên MySQL slave  
 `mysql> UNLOCK TABLES;`  
